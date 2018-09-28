@@ -1,6 +1,8 @@
 package com.zy.traval.controller;
 
 import com.zy.traval.bean.Test;
+import com.zy.traval.common.annotion.RestMapping;
+import com.zy.traval.common.util.ResponMap;
 import com.zy.traval.dao.TestDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,19 +26,20 @@ public class TestController {
     @Autowired
     TestDao testDao;
 
-    @RequestMapping("test")
-    @ResponseBody
-    public String test() {
-        return "test";
+    @RestMapping("test")
+    public ResponMap test() {
+        ResponMap responMap = new ResponMap();
+        responMap.setSuccess("调用成功");
+        return responMap;
     }
 
 
     @RequestMapping("test2")
     @ResponseBody
     public String all() {
-        Optional<Test> test=testDao.findById(1);
-        if (test.isPresent()){
-            Test restl=test.get();
+        Optional<Test> test = testDao.findById(1);
+        if (test.isPresent()) {
+            Test restl = test.get();
         }
         return "success";
     }
