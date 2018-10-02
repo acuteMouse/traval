@@ -7,7 +7,7 @@ import java.util.Map;
  * @date 2018/9/25 21:05
  */
 public class ResponMap {
-    private Integer flag;
+    private Integer flag=0;
     private Object result;
     private String message;
 

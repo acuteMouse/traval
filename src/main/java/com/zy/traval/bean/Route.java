@@ -1,5 +1,8 @@
 package com.zy.traval.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.context.annotation.Lazy;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -49,7 +52,7 @@ public class Route {
      * 收费标准
      */
     @OneToMany
-    private List<PriceStandard> standards;
+    private List<PriceStandard> priceStandards;
 
     public Integer getId() {
         return id;
@@ -123,11 +126,11 @@ public class Route {
         this.transports = transports;
     }
 
-    public List<PriceStandard> getStandards() {
-        return standards;
+    public List<PriceStandard> getPriceStandards() {
+        return priceStandards;
     }
 
-    public void setStandards(List<PriceStandard> standards) {
-        this.standards = standards;
+    public void setPriceStandards(List<PriceStandard> priceStandards) {
+        this.priceStandards = priceStandards;
     }
 }

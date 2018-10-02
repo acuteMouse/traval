@@ -37,7 +37,10 @@ public class UserController {
     public ResponMap login(String username, String password) {
         ResponMap responMap = new ResponMap();
         try {
-            responMap.setSuccess(userService.login(username, password));
+            User user=userService.login(username, password);
+            if (user!=null){
+                responMap.setSuccess(user);
+            }
         } catch (Exception e) {
             logger.info(e.getMessage());
             responMap.setFail(e.getMessage());
